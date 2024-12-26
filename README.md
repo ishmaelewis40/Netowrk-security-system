@@ -72,7 +72,7 @@ This project's goal is to provide a simulated home network environment for learn
 
 ### Vulnerability Scanning (Nmap/OpenVAS)
 
-*   **Scans Performed:** \[Describe the types of scans you performed (e.g., SYN scan, UDP scan, version detection).] The scans performed were a TCP-SYN scan, a version detection scan and an OS detection scan
+*   **Scans Performed:**  The scans performed were a TCP-SYN scan, a version detection scan and an OS detection scan, UDP Scan
 *   **Scan Results:** [image](https://github.com/user-attachments/assets/f3c49822-40cf-4cfa-bbb8-f02d71f904fd) This image indicates all the open ports that were found and vulnerabilities before firewall rules had ben implimented.
 
 
@@ -87,7 +87,6 @@ This project's goal is to provide a simulated home network environment for learn
 
 ## Findings and Analysis
 
-\[This is where you document what you discovered during your project. Be specific! Examples:
 
 *   "Nmap identified filtered ports 22,23 (SSH) and 80 (HTTP) on the Windows VM."
 *   "Wireshark captured a TCP three-way handshake between the attacker and Windows VMs, indicating a successful connection attempt before the firewall rule was implemented."
@@ -96,22 +95,25 @@ This project's goal is to provide a simulated home network environment for learn
 
 ## Challenges and Lessons Learned
 
-\[Document any difficulties you encountered and what you learned from them. This is a valuable part of the documentation.]
+ I had learnt during this project that using UFW or iptables as a firewall alone isnt enough, In some cases the hacker was able to establish a connection with the user VM before the fire wall could detect or block the hackers ip address, also a weakness in the firewall would be that if the hacker used a VPN it would mean that they could gain access again and they may be able to use more advanced techniques the next time.
+
+It is better to use an IDS or IPS to ensure an extra layer of protection. 
+All VM's in the network should use a bridged connection instead of NAT. This is because a NAT connection creates a separate network from the other machines which makes using wireshark for network monitoring redundant. 
+Wireshark is able to pick up TCP SYN scans on the network even when then the firewall isnt able to, using an extra layer of protection would be advisable as you cannot constantly watch network traffic at all times of the day.
 
 ## Future Improvements
 
-*   Implement an Intrusion Detection System (IDS) like Snort or Suricata.
+*   Implement an Intrusion Prevention System (IPS) like Snort, Suricata or Azure.
 *   Set up a honeypot to attract and capture attacker activity.
 *   Explore more advanced firewall configurations and techniques.
+*   Create an environment that a hacker will use more advanced techniques to break into the network.
 *   Automate vulnerability scanning and reporting.
 
-## Contributing
-
-\[If you want others to contribute to your project, add contribution guidelines.]
 
 
 
-**Key Improvements:**
+
+
 
 
 Remember to replace the bracketed placeholders with your actual project details. This template should give you a solid foundation for your project documentation.
